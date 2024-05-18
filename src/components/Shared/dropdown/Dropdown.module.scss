@@ -1,0 +1,19 @@
+.select__wrapper {
+  @apply relative flex flex-col items-center h-[34px];
+}
+
+.select {
+  @apply bg-white border w-full h-full rounded-lg focus:outline-none cursor-pointer flex items-center justify-between px-4;
+}
+
+.label {
+  @apply absolute left-[-0.1rem] top-[-1.2rem] text-[14px] text-left text-[#fff];
+}
+
+.dropdownOptions {
+  @apply absolute mt-[34px] w-full max-h-[10rem] overflow-y-auto border bg-white rounded-lg shadow-md z-10;
+}
+
+.option {
+  @apply px-4 py-2 cursor-pointer hover:bg-gray-100;
+}

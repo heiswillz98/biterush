@@ -1,0 +1,27 @@
+.input_container {
+  @apply relative flex items-center h-[34px] w-auto;
+}
+
+.input {
+  @apply w-full z-10  border px-5 py-0 my-3 h-full cursor-pointer rounded-lg  appearance-none focus:outline-none;
+}
+
+.input::placeholder {
+  @apply text-[#9A9A9A] text-[14px];
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.label {
+  @apply text-[14px] text-left text-[#fff];
+}
