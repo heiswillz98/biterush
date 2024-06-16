@@ -1,5 +1,5 @@
 .select__wrapper {
-  @apply relative flex flex-col items-center h-[34px];
+  @apply relative flex flex-col items-center h-[34px] z-50;
 }
 
 .select {
@@ -11,7 +11,7 @@
 }
 
 .dropdownOptions {
-  @apply absolute mt-[34px] w-full max-h-[10rem] overflow-y-auto border bg-white rounded-lg shadow-md z-10;
+  @apply absolute mt-[34px] w-full max-h-[10rem] overflow-y-auto border bg-white rounded-lg shadow-md z-50;
 }
 
 .option {
