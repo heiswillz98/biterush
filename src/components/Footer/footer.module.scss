@@ -1,0 +1,27 @@
+.container {
+  @apply bg-[#41c09e] text-white;
+}
+
+.heading {
+  @apply flex flex-col gap-5 py-20 mx-20;
+}
+
+.bite {
+  @apply flex flex-row items-center text-lg md:text-xl gap-2 mb-4;
+}
+
+.icon {
+  @apply bg-[white] flex items-center h-9;
+}
+
+.base {
+  @apply flex flex-col gap-8 md:flex-row md:gap-10;
+}
+
+.cont {
+  @apply flex flex-col gap-2;
+}
+
+.line {
+  @apply border border-white w-full my-6 mt-6;
+}

@@ -1,3 +1,55 @@
+.Container {
+  @apply fixed top-0 w-full bg-white z-50;
+}
+
+.ContainerH {
+  @apply bg-[#41c09e] h-8 md:h-12;
+}
+
+.ContainerP {
+  @apply font-[900] text-white text-xs md:text-sm flex items-center justify-center pt-2;
+}
+
+.Header {
+  @apply flex h-[2rem] gap-8 items-center justify-center mx-8 mt-8;
+}
+
+.HeaderH {
+  @apply flex mb-6 items-center;
+}
+
+.Bottom {
+  @apply flex gap-6 mx-[2rem] items-center lg:w-[1340px];
+}
+
+.BottomP {
+  @apply flex flex-row items-center text-lg md:text-xl gap-2;
+}
+
+.Navs {
+  @apply hidden mx-[23rem] lg:flex flex-row gap-8;
+}
+
+.MobileNav {
+  @apply lg:hidden absolute bg-[white] flex flex-col gap-6 h-[100rem] w-[400px] pt-[2rem] pl-6  border-r-2 z-50;
+}
+
+.BsBag {
+  @apply flex flex-row gap-4 text-[20px]  ml-auto;
+}
+
+.Lia {
+  @apply left-[3rem] text-[22px] bottom-[44rem] cursor-pointer;
+}
+
+.Si {
+  @apply bg-[white] flex items-center h-9;
+}
+
+.Sic {
+  @apply text-[white] text-2xl;
+}
+
 .NavbarItems {
   display: flex;
   justify-content: space-between;
