@@ -7,14 +7,18 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   type,
   className,
-
+  labelColor,
   ...rest
 }) => {
   return (
     <div className="relative">
       <div>
         {label && (
-          <label htmlFor={name} className={` ${styles.label}`}>
+          <label
+            htmlFor={name}
+            className={` ${styles.label}`}
+            style={{ color: labelColor }}
+          >
             <div>{label}</div>
           </label>
         )}

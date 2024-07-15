@@ -29,7 +29,7 @@ const Restaurants = () => {
               <div className="" key={index}>
                 <div className="bg-[#fff] w-full pb-2 relative rounded-lg md:rounded-[1rem]">
                   {items.closed && ( // Check if the restaurant is closed
-                    <div className="absolute inset-0 bg-black bg-opacity-80 flex bottom-24 z-10 items-center justify-center h-[20vh] md:h-[16vh] lg:h-[20vh] rounded-lg md:rounded-[1rem]">
+                    <div className="absolute inset-0 bg-black bg-opacity-80 flex bottom-24 z-10 items-center justify-center h-[20vh] md:h-[16vh] lg:h-[20vh] xl:h-[18.3vh] rounded-lg md:rounded-[1rem]">
                       <p className="text-white text-2xl font-semibold">
                         CLOSED
                       </p>
