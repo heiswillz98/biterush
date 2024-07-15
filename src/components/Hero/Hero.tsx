@@ -34,12 +34,12 @@ const Hero = () => {
 
           <div className=" flex flex-col gap-4 w-[60%] md:w-[40%] lg:w-5/6  bg-[#41c09e]  h-40 rounded-sm">
             <h1 className="text-white">Not in FUTA? Change Location</h1>
-            <Dropdown
+            {/* <Dropdown
               options={options}
               dropdownValue={selectedOption}
               onChange={handleDropdownChange}
               className=""
-            />
+            /> */}
           </div>
         </div>
         <div className="absolute top-32 left-44 md:top-28 md:left-[27rem] lg:relative xl:top-0 lg:left-0 lg:z-20">
