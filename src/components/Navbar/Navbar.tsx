@@ -23,7 +23,7 @@ const Navbar = () => {
   const navItems = [
     { text: "Restaurants", link: "" },
     { text: "Login", link: "" },
-    { text: "Create Account", link: "" },
+    { text: "Create Account", link: "/register" },
   ];
 
   return (
