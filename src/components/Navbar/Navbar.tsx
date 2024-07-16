@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const navItems = [
     { text: "Restaurants", link: "" },
-    { text: "Login", link: "" },
+    { text: "Login", link: "/login" },
     { text: "Create Account", link: "/register" },
   ];
 

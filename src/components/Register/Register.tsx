@@ -7,6 +7,7 @@ import Logo from "../Logo/Logo";
 import Button from "../Shared/button/Button";
 import Checkbox from "../Shared/checkbox/Checkbox";
 import UploadInput from "../Shared/uploadInput/UploadInput";
+import Link from "next/link";
 
 const currency = [
   { label: "USD", value: "USD" },
@@ -45,20 +46,24 @@ const Register = () => {
   });
   return (
     <div>
-      <div className="flex flex-col lg:flex-row  lg:h-screen ">
-        <div className="flex flex-col items-center gap-6 bg-[#41c09e] w-full lg:w-1/2 py-32 ">
-          <Logo className="text-white" />
-          <H4 className="font-bold text-white">Welcome to Bite Rush</H4>
-          <H6 className="text-white">
-            No 1 Food Ordering platform for students
-          </H6>
+      <div className="flex flex-col lg:flex-row  lg:h-full ">
+        <div className=" bg-[#41c09e]  w-full lg:w-1/2 py-32 ">
+          <div className="flex flex-col items-center gap-6 lg:h-[20rem]">
+            <Logo className="text-white" />
+            <H4 className="font-bold text-white">Welcome to Bite Rush</H4>
+            <H6 className="text-white">
+              No 1 Food Ordering platform for students
+            </H6>
+          </div>
         </div>
-        <div className="flex flex-col gap-1 items-center lg:w-full ">
+        <div className="flex flex-col gap-1 items-center lg:w-full h-screen lg:overflow-auto">
           <div className="flex flex-col gap-3 items-center py-8 pt-14">
             <H5>Create an account</H5>
             <H6>
               Already have an account?{" "}
-              <span className="text-[#41c09e]">sign in here</span>{" "}
+              <Link href="/login" className="text-[#41c09e]">
+                sign in here
+              </Link>{" "}
             </H6>
             <Button className="bg-[#41c09e] text-white flex gap-2 items-center py-4 px-16 rounded-md">
               <FaGoogle /> Sign in with Google
