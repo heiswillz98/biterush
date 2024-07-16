@@ -31,7 +31,7 @@
 }
 
 .MobileNav {
-  @apply lg:hidden absolute bg-[white] flex flex-col gap-6 h-[100rem] w-[400px] pt-[2rem] pl-6  border-r-2 z-50;
+  @apply lg:hidden absolute bg-[white] flex flex-col gap-2 h-[100vh] w-[300px] pt-[2rem] pl-6  border-r-2 z-50;
 }
 
 .BsBag {
@@ -130,7 +130,7 @@
 
 .btn:hover {
   background-color: #fff;
-  color: hsl(228, 62%, 59%);
+  color: #41c09e;
 }
 
 .menu_icons {
@@ -181,13 +181,13 @@
     display: flex;
     align-items: center;
     gap: 4;
-    width: 100%;
+    width: 80%;
     font-size: 1.3rem;
-    padding: 1.9rem 0;
+    padding: 20px;
   }
 
   .nav_links:hover {
-    background-color: hsl(228, 66%, 47%);
+    background-color: #41c09e;
     color: #fff;
     transition: none;
   }
