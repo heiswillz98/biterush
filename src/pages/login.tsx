@@ -1,14 +1,14 @@
-import Login from "@/components/Login/Login";
+import SignIn from "@/components/Login/Login";
 import React from "react";
 
 type Props = {};
 
-const login = (props: Props) => {
+const Login = (props: Props) => {
   return (
     <div>
-      <Login />
+      <SignIn />
     </div>
   );
 };
 
-export default login;
+export default Login;

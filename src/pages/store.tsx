@@ -1,12 +1,12 @@
-import Store from "@/components/Store/Store";
+import Stores from "@/components/Store/Store";
 import React from "react";
 
-const store = () => {
+const Store = () => {
   return (
     <div>
-      <Store />
+      <Stores />
     </div>
   );
 };
 
-export default store;
+export default Store;

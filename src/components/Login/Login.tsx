@@ -9,7 +9,7 @@ import Button from "../Shared/button/Button";
 import { FaApple, FaFacebook } from "react-icons/fa6";
 import Link from "next/link";
 
-const Register = () => {
+const SignIn = () => {
   return (
     <div>
       <div className="flex flex-col lg:flex-row  lg:h-full ">
@@ -63,4 +63,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignIn;

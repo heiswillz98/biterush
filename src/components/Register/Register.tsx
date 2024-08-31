@@ -21,7 +21,7 @@ const currency = [
   { label: "BTC", value: "BTC" },
 ];
 
-const Register = () => {
+const SignUp = () => {
   const [active, setActive] = useState(false);
   const handleDropdownChange = (
     e: ChangeEvent<HTMLSelectElement>,
@@ -114,4 +114,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;

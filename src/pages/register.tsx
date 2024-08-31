@@ -1,14 +1,16 @@
 import Footer from "@/components/Footer/Footer";
-import Register from "@/components/Register/Register";
+import SignUp from "@/components/Register/Register";
+import { Sign } from "crypto";
 import React from "react";
 
-const register = () => {
+const Register = () => {
   return (
     <div>
-      <Register />
+      {/* <Register /> */}
       {/* <Footer /> */}
+      <SignUp />
     </div>
   );
 };
 
-export default register;
+export default Register;
