@@ -1,5 +1,4 @@
 import "@/styles/globals.scss";
-// import { DefaultSeo } from 'next-seo';
 import type { AppProps } from "next/app";
 import { Hanken_Grotesk } from "next/font/google";
 
@@ -11,13 +10,9 @@ const hanken = Hanken_Grotesk({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <DefaultSeo title="Rodriguez Collections" /> */}
-
-      {/* <ProductCartProvider> */}
       <main className={hanken.className}>
         <Component {...pageProps} />
       </main>
-      {/* </ProductCartProvider> */}
     </>
   );
 }
