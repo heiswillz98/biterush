@@ -27,6 +27,10 @@ const items: MenuItemData[] = [
   { id: 2, imagePath: Rice, itemName: "Jollofs Rice", price: 300 },
   { id: 3, imagePath: Rice, itemName: "Jollofss Rice", price: 400 },
   { id: 4, imagePath: Rice, itemName: "Jollofsss Rice", price: 500 },
+  { id: 5, imagePath: Rice, itemName: "Jollofss Rice", price: 400 },
+  { id: 6, imagePath: Rice, itemName: "Jollofsss Rice", price: 500 },
+  { id: 7, imagePath: Rice, itemName: "Jollofss Rice", price: 400 },
+  { id: 8, imagePath: Rice, itemName: "Jollofsss Rice", price: 500 },
   // Other items...
 ];
 
@@ -178,37 +182,41 @@ const Stores: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-11/12 mx-auto border border-dotted border-gray-950 mt-10">
-        {packs
-          .filter((pack) => pack.id === currentPackId) // Display only the current pack
-          .map((pack) => (
-            <div key={pack.id}>
-              <h3 className="text-lg font-bold mb-4">Pack {pack.id}</h3>
-              {items.map((item, index) => (
-                <React.Fragment key={item.id}>
-                  <MenuItem
-                    imagePath={item.imagePath}
-                    itemName={item.itemName}
-                    price={item.price}
-                    onIncrement={() => handleIncrement(pack.id, item.id)} // Changed from increment to onIncrement
-                    onDecrement={() => handleDecrement(pack.id, item.id)}
-                    count={pack.counters[item.id] || 0}
-                  />
-                  {index < items.length - 1 && <hr className="my-2" />}
-                </React.Fragment>
-              ))}
-            </div>
-          ))}
+      <div className="relative flex">
+        <div className="w-11/12 mx-auto border border-dotted rounded-md py-4 border-gray-950 mt-10 mb-20">
+          {packs
+            .filter((pack) => pack.id === currentPackId) // Display only the current pack
+            .map((pack) => (
+              <div className="flex flex-col mx-2" key={pack.id}>
+                <h3 className="text-lg font-bold mb-4 ">Pack {pack.id}</h3>
+                {items.map((item, index) => (
+                  <React.Fragment key={item.id}>
+                    <MenuItem
+                      imagePath={item.imagePath}
+                      itemName={item.itemName}
+                      price={item.price}
+                      onIncrement={() => handleIncrement(pack.id, item.id)} // Changed from increment to onIncrement
+                      onDecrement={() => handleDecrement(pack.id, item.id)}
+                      count={pack.counters[item.id] || 0}
+                    />
+                    {index < items.length - 1 && <hr className="my-2" />}
+                  </React.Fragment>
+                ))}
+              </div>
+            ))}
+        </div>
+        <div className="fixed bottom-0 w-full">
+          <OrderItem
+            packs={packs}
+            items={items}
+            addNewPack={addNewPack}
+            resetPackSelection={resetPackSelection}
+            onPackClick={handlePackClick}
+            onDuplicatePack={handleDuplicatePack}
+            onEmptyPack={handleEmptyPack}
+          />
+        </div>
       </div>
-      <OrderItem
-        packs={packs}
-        items={items}
-        addNewPack={addNewPack}
-        resetPackSelection={resetPackSelection}
-        onPackClick={handlePackClick}
-        onDuplicatePack={handleDuplicatePack}
-        onEmptyPack={handleEmptyPack}
-      />
     </div>
   );
 };
