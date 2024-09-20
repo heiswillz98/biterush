@@ -30,7 +30,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         onChange={onChange}
         required
       >
-        <option className={styles.placeholder} value="" disabled>
+        <option className=" text-xs" value="" disabled>
           {placeholder}
         </option>
         {options.map((option, index) => (

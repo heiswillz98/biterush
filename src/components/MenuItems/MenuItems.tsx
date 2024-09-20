@@ -22,7 +22,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   onDecrement,
 }) => {
   return (
-    <div className="flex items-center justify-between mx-3 my-3">
+    <div className="flex items-center justify-between  my-3">
       <Img path={imagePath} name="image" className="w-1/3 rounded-2xl" />
       <div>
         <P2>{itemName}</P2>

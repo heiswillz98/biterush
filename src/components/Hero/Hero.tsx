@@ -1,8 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
 import food2 from "@/assets/img/Hero.svg";
 import Img from "../Shared/images/Image";
-import Dropdown from "../Shared/dropdown/Dropdown";
+// import Dropdown from "../Shared/dropdown/Dropdown";
 import { H1, H3, H6 } from "../Shared/heading/Heading";
+import Dropdown from "../Shared/dropdown/dropdown2";
 
 const Hero = () => {
   const options = [
@@ -35,12 +36,18 @@ const Hero = () => {
 
           <div className=" flex flex-col gap-4 w-[60%] md:w-[40%] lg:w-5/6  bg-[#41c09e]  h-40 rounded-sm">
             <h1 className="text-white">Not in FUTA? Change Location</h1>
-            <Dropdown
+            {/* <Dropdown
               label=""
               options={options}
               dropdownValue={selectedOption}
               onChange={() => handleDropdownChange}
               className=""
+            /> */}
+            <Dropdown
+              options={["Futa", "Funaab", "Oau"]}
+              placeholder="Select Location"
+              onChange={handleDropdownChange}
+              className="z-10"
             />
           </div>
         </div>

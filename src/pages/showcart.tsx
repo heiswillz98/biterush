@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import MenuItem from "../components/MenuItems/MenuItems";
 import { StaticImageData } from "next/image";
-import { H4, H6 } from "@/components/Shared/heading/Heading";
+import { H4, H6, P2 } from "@/components/Shared/heading/Heading";
 import Input from "@/components/Shared/Inputs/Input";
 import Dropdown from "@/components/Shared/dropdown/Dropdown";
 import Button from "@/components/Shared/button/Button";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/router";
+import OrderSummary from "@/components/Order/orderSummary";
 
 interface MenuItemData {
   imagePath: StaticImageData;
@@ -162,83 +163,84 @@ const ShowCart: React.FC = () => {
 
   return (
     <section>
-      <div className="w-11/12 mx-auto border border-dotted border-gray-950 mt-10">
-        <div>
-          <h1>Cart</h1>
-          {updatedPacks.map((pack) => (
-            <div key={pack.id}>
-              <h3>Pack {pack.id}</h3>
-              {items.map(
-                (item) =>
-                  pack.counters[item.id] > 0 && (
-                    <div key={item.id}>
-                      <MenuItem
-                        imagePath={item.imagePath}
-                        itemName={item.itemName}
-                        price={item.price}
-                        onIncrement={() => handleIncrement(pack.id, item.id)}
-                        onDecrement={() => handleDecrement(pack.id, item.id)}
-                        count={pack.counters[item.id] || 0}
-                      />
-                    </div>
-                  )
-              )}
-              <p>
-                Total Price for Pack {pack.id}: ₦
-                {getTotalPrice(pack).toLocaleString()}
-              </p>
-            </div>
-          ))}
-          <h2 className="mt-4">
-            Grand Total Price: ₦{getGrandTotalPrice().toLocaleString()}
-          </h2>
+      <div className=" w-11/12 flex flex-col items-center mx-auto justify-center gap-2 my-4">
+        <div className=" border border-dotted rounded-md py-4 border-gray-950">
+          <div>
+            <h1 className="text-lg font-bold mb-4 ">Cart</h1>
+            {updatedPacks.map((pack) => (
+              <div key={pack.id}>
+                <h3 className="text-base font-bold">Pack {pack.id}</h3>
+                {items.map(
+                  (item) =>
+                    pack.counters[item.id] > 0 && (
+                      <div key={item.id}>
+                        <MenuItem
+                          imagePath={item.imagePath}
+                          itemName={item.itemName}
+                          price={item.price}
+                          onIncrement={() => handleIncrement(pack.id, item.id)}
+                          onDecrement={() => handleDecrement(pack.id, item.id)}
+                          count={pack.counters[item.id] || 0}
+                        />
+                      </div>
+                    )
+                )}
+                <p>
+                  Total Price for Pack {pack.id}: ₦
+                  {getTotalPrice(pack).toLocaleString()}
+                </p>
+              </div>
+            ))}
+            <h2 className="mt-4">
+              Grand Total Price: ₦{getGrandTotalPrice().toLocaleString()}
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4 my-4">
+            <H4>Delivery details</H4>
+            <Input
+              labelColor="black"
+              label="Name"
+              value={name}
+              onChange={handleNameChange}
+            />
+            <Input
+              labelColor="black"
+              label="Phone Number"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+            />
+            <Dropdown
+              label="Enter Location"
+              options={options}
+              dropdownValue={selectedOption}
+              onChange={handleDropdownChange}
+              className=""
+            />
+            <Input
+              labelColor="black"
+              label="Delivery Address"
+              value={deliveryAddress}
+              onChange={handleDeliveryAddressChange}
+            />
+          </div>
+          <div className="bg-red-400 text-white">
+            <p>
+              Delivery includes Pin Confirmation
+              <br />
+              <span>
+                This helps ensure that your order is given to the right person
+              </span>
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 my-4">
-          <H4>Delivery details</H4>
-          <Input
-            labelColor="black"
-            label="Name"
-            value={name}
-            onChange={handleNameChange}
-          />
-          <Input
-            labelColor="black"
-            label="Phone Number"
-            value={phoneNumber}
-            onChange={handlePhoneNumberChange}
-          />
-          <Dropdown
-            label="Enter Location"
-            options={options}
-            dropdownValue={selectedOption}
-            onChange={handleDropdownChange}
-            className=""
-          />
-          <Input
-            labelColor="black"
-            label="Delivery Address"
-            value={deliveryAddress}
-            onChange={handleDeliveryAddressChange}
+
+        <div className="">
+          <OrderSummary
+            getGrandTotalPrice={getGrandTotalPrice}
+            deliveryCost={deliveryCost}
+            handleWhatsAppClick={handleWhatsAppClick}
           />
         </div>
-        <div>
-          <H6>Subtotal : ₦{getGrandTotalPrice().toLocaleString()} </H6>
-          <H6>Delivery : ₦{deliveryCost.toLocaleString()} </H6>
-          <H6>Pack Fee : ₦0 </H6>
-          <H6>Charges : ₦0 </H6>
-          <H6>Grand Total : ₦{getGrandTotalPrice().toLocaleString()} </H6>
-        </div>
-      </div>
-      <div>
-        <Button
-          className="bg-green-400 flex flex-row px-2 py-2 gap-3 rounded-md text-white items-center"
-          onClick={handleWhatsAppClick}
-        >
-          <FaWhatsapp /> Proceed to WhatsApp
-        </Button>
-        <Button className="bg-red-400 flex flex-row px-2 py-2 gap-3 rounded-md text-white items-center">
-          Cancel Order
-        </Button>
       </div>
     </section>
   );
