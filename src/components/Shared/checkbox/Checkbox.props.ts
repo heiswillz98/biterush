@@ -7,4 +7,5 @@ export default interface CheckboxProps {
   className?: string;
   name?: string;
   checked?: boolean;
+  error?: string | false;
 }
