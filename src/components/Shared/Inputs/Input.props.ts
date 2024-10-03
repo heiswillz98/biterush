@@ -6,4 +6,5 @@ export default interface InputProps extends React.HTMLProps<HTMLInputElement> {
   className?: string;
   borderRadius?: string;
   labelColor?: string;
+  error?: string | false;
 }

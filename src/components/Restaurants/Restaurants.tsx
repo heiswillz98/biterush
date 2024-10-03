@@ -4,14 +4,28 @@ import Img from "../Shared/images/Image";
 import { RiMotorbikeFill } from "react-icons/ri";
 import { CiStar } from "react-icons/ci";
 import { restaurantData } from "@/data/restaurantData";
-import { P, P2 } from "../Shared/heading/Heading";
+import { P2 } from "../Shared/heading/Heading";
+import Pagination from "../Pagination/Pagination";
 
 const Restaurants: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState<string | null>(
     null
   );
+  const [currentPage, setCurrentPage] = useState(1);
+  const restaurantsPerPage = 6;
   const router = useRouter();
+
+  // Calculate total pages
+  const totalPages = Math.ceil(restaurantData.length / restaurantsPerPage);
+
+  // Get restaurants for the current page
+  const indexOfLastRestaurant = currentPage * restaurantsPerPage;
+  const indexOfFirstRestaurant = indexOfLastRestaurant - restaurantsPerPage;
+  const currentRestaurants = restaurantData.slice(
+    indexOfFirstRestaurant,
+    indexOfLastRestaurant
+  );
 
   const handleRestaurantClick = (name: string, closed: boolean) => {
     if (closed) {
@@ -27,6 +41,10 @@ const Restaurants: React.FC = () => {
     setSelectedRestaurant(null);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="bg-[#E9EBEE]">
       <div className="py-4">
@@ -35,7 +53,7 @@ const Restaurants: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4">
-          {restaurantData.map((items, index) => (
+          {currentRestaurants.map((items, index) => (
             <div
               className="flex flex-col gap-1"
               key={index}
@@ -48,7 +66,7 @@ const Restaurants: React.FC = () => {
                   className="relative h-40 w-full rounded-lg md:rounded-[1rem]"
                 />
                 {items.closed && (
-                  <div className="absolute inset-0 bg-black bg-opacity-80 flex bottom-24 z-10 items-center justify-center h-full md:h-[16vh] lg:h-[20vh] xl:h-[18.3vh] rounded-lg md:rounded-[1rem]">
+                  <div className="absolute inset-0 bg-black bg-opacity-80 flex bottom-24 z-10 items-center justify-center h-full  rounded-lg md:rounded-[1rem]">
                     <p className="text-white text-2xl font-semibold">CLOSED</p>
                   </div>
                 )}
@@ -74,6 +92,13 @@ const Restaurants: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Pagination Component */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
 
         {/* Modal */}
         {isModalOpen && (

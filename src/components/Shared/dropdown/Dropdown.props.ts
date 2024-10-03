@@ -33,4 +33,5 @@ export interface DropdownProps {
   className?: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   placeholder?: string;
+  error?: string | false;
 }

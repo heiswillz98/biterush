@@ -2,44 +2,48 @@ import { useState } from "react";
 
 interface UploadInputProps {
   label: string;
+  value: string | null;
+  onChange: (file: File | null) => void;
 }
 
-const UploadInput: React.FC<UploadInputProps> = ({ label }) => {
-  const [fileName, setFileName] = useState<string | null>(null);
+const UploadInput: React.FC<UploadInputProps> = ({
+  label,
+  value,
+  onChange,
+}) => {
+  const [preview, setPreview] = useState<string | null>(value);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
     if (file) {
-      setFileName(file.name);
+      setPreview(URL.createObjectURL(file));
+      onChange(file);
     } else {
-      setFileName(null);
+      setPreview(null);
+      onChange(null);
     }
   };
 
   return (
     <div>
-      <div className="flex items-center justify-center h-[36px] bg-slate-100">
-        {fileName && <span className="mr-4">{label}</span>}
+      <div className="flex flex-col gap-2 ">
+        {label && <p className="text-sm font-bold">{label}</p>}
         <label
-          className="flex items-center border border-gray-300 rounded-lg px-4 py-2 bg-white cursor-pointer hover:bg-gray-200"
+          className="flex items-center border border-gray-300 rounded-lg px-4 py-2 bg-slate-100 cursor-pointer hover:bg-gray-200"
           style={{ height: "36px" }}
         >
-          {/* <svg
-          className="w-6 h-6 text-blue-500"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path d="M16.4 10.55a1 1 0 0 0-1.64-.95l-3 2.75V5a1 1 0 1 0-2 0v7.35l-3-2.75a1 1 0 0 0-1.4 1.4l4.5 4.1a1 1 0 0 0 1.4 0l4.5-4.1a1 1 0 0 0 .14-1.4z" />
-        </svg> */}
-          {!fileName && (
+          {preview ? (
+            <span className="ml-2 text-base leading-normal">
+              Select another image
+            </span>
+          ) : (
             <span className="ml-2 text-base leading-normal">
               Select an image
             </span>
           )}
           <input type="file" className="hidden" onChange={handleFileChange} />
         </label>
-        {fileName && <p className="ml-4 text-lg">{fileName}</p>}
+        {preview && <img src={preview} alt="Preview" className="h-20 mt-2" />}
       </div>
     </div>
   );

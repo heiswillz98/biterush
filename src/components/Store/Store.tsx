@@ -158,7 +158,7 @@ const Stores: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-row border border-gray-700 w-5/6 rounded-xl mx-auto justify-between px-10 mt-10">
+      <div className="flex flex-row border border-gray-700 w-5/6 rounded-xl mx-auto justify-between px-10 mt-10 md:w-1/2">
         <div
           className={`cursor-pointer ${
             selectedOption === "deliver"
@@ -182,8 +182,8 @@ const Stores: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative flex">
-        <div className="w-11/12 mx-auto border border-dotted rounded-md py-4 border-gray-950 mt-10 mb-20">
+      <div className="relative flex md:mx-10 ">
+        <div className="w-11/12 mx-auto border border-dotted rounded-md py-4 border-gray-950 mt-10 mb-20 md:w-3/4 ">
           {packs
             .filter((pack) => pack.id === currentPackId) // Display only the current pack
             .map((pack) => (
@@ -205,7 +205,18 @@ const Stores: React.FC = () => {
               </div>
             ))}
         </div>
-        <div className="fixed bottom-0 w-full">
+        <div className=" fixed bottom-0 w-full md:hidden">
+          <OrderItem
+            packs={packs}
+            items={items}
+            addNewPack={addNewPack}
+            resetPackSelection={resetPackSelection}
+            onPackClick={handlePackClick}
+            onDuplicatePack={handleDuplicatePack}
+            onEmptyPack={handleEmptyPack}
+          />
+        </div>
+        <div className="hidden md:block sticky top-28 h-[40rem] w-1/2 mt-10 ">
           <OrderItem
             packs={packs}
             items={items}

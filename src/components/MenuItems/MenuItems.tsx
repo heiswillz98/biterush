@@ -22,12 +22,19 @@ const MenuItem: React.FC<MenuItemProps> = ({
   onDecrement,
 }) => {
   return (
-    <div className="flex items-center justify-between  my-3">
-      <Img path={imagePath} name="image" className="w-1/3 rounded-2xl" />
-      <div>
-        <P2>{itemName}</P2>
-        <P2>Price: ₦{price}</P2>
+    <div className="flex items-center justify-between md:mx-4 my-3 md:my-1">
+      <div className="flex gap-10">
+        <Img
+          path={imagePath}
+          name="image"
+          className="w-1/3 rounded-2xl md:h-[60px] md:w-[160px]"
+        />
+        <div>
+          <P2>{itemName}</P2>
+          <P2>Price: ₦{price}</P2>
+        </div>
       </div>
+
       <Counter
         count={count}
         onDecrement={onDecrement}

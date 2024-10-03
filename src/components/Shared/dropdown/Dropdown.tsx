@@ -11,6 +11,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   placeholder = "---Select Option ---",
   labelColor,
+  error,
 }) => {
   return (
     <div className={`${styles.select__wrapper} ${className}`}>
@@ -39,6 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           </option>
         ))}
       </select>
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };
